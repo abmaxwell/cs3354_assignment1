@@ -1,13 +1,13 @@
 package cs3354.assignment1;
 import java.util.Scanner;
 
-/*******************************************
-
-
-
-
- */
+/*******************************************************************************
+ *
+ *
+ *
+ ******************************************************************************/
 public class Main {
+
     public static void main(String[] args) {
 
         boolean loopMenu = true;
@@ -31,6 +31,8 @@ public class Main {
             switch(menuChoice){
                 case 1:
                     System.out.println("MADE TO OPTION 1");
+
+                    // Prompt user new DVD from user
                     break;
                 case 2:
                     System.out.println("MADE TO OPTION 2");
