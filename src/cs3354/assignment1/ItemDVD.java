@@ -1,5 +1,7 @@
 package cs3354.assignment1;
 
+import java.io.Serializable;
+
 /*******************************************************************************
  @author Alexander Maxwell
  Date: 02/01/2017
@@ -16,7 +18,7 @@ package cs3354.assignment1;
 
  ******************************************************************************/
 
-public class ItemDVD {
+public class ItemDVD implements Serializable {
 
     // Define ItemDVD class member variables.
     private int sku;

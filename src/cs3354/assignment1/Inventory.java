@@ -1,6 +1,10 @@
 package cs3354.assignment1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 
 /*******************************************************************************
  @author Alexander Maxwell
@@ -15,7 +19,7 @@ import java.util.ArrayList;
 
 
  ******************************************************************************/
-public class Inventory {
+public class Inventory implements Serializable {
 
 
     // Define Inventory class member variables
@@ -97,8 +101,8 @@ public class Inventory {
             System.out.println("Price: $" + currentDVD.getPrice());
             System.out.println("Quantity: " + currentDVD.getQuantity());
         } else {
-            System.out.println(" ERROR! " + sku + " not found! Please check " +
-                            "your SKU and try again.");
+            System.out.println("ERROR! The SKU '" + sku + "' not found! " +
+                    "Please check your SKU and try again.");
         }
     }
     /*
@@ -112,14 +116,19 @@ public class Inventory {
     public void displayInventory(){
         // Define method specific variables.
         ItemDVD currentDVD;
-        System.out.format("%10s%15s%15s%20s", "SKU", "Quantity", "Price",
-                "Title");
+        Locale locale = new Locale("en", "US");
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
+
+        System.out.format("%1$-10s %2$-15s %3$-15s %4$-15s %n", "SKU",
+                "Quantity", "Price", "Title");
+        System.out.println();
 
         for (int index = 0; index < currentInventory.size(); index++) {
             currentDVD = currentInventory.get(index);
 
-            System.out.format("%10s%15s%15s%20s", currentDVD.getSku(),
-                    currentDVD.getQuantity(), "$" + currentDVD.getPrice(),
+            System.out.format("%1$-10s %2$-15s %3$-15s %4$-15s %n",
+                    currentDVD.getSku(), currentDVD.getQuantity(),
+                    currencyFormatter.format(currentDVD.getPrice()),
                     currentDVD.getTitle());
 
         }
