@@ -1,11 +1,17 @@
 package cs3354.assignment1;
-import java.util.Objects;
 import java.util.Scanner;
 import java.io.*;
 /*******************************************************************************
- *
- *
- *
+ @author Alexander Maxwell
+ Date: 02/01/2017
+ @version 1.3
+ @since 1.0
+ Class Name: Main
+ Description: <p> The Main class defines is the driver for a store inventory
+ program. It loops a menu, reads in DVD items from a file and writes DVD items
+ to a file after the program quits. It allows users to add items to the
+ inventory, remove items from the inventory and view the inventory.
+ </p>
  ******************************************************************************/
 public class Main {
 
@@ -19,6 +25,7 @@ public class Main {
         int itemQuantity;
         double itemPrice;
         String itemTitle;
+        final String STORE_NAME = "BlueBOX Store Inventory Menu";
         final String FILE_NAME = "inventoryRecord.txt";
         Inventory storeInventory = new Inventory();
 
@@ -46,7 +53,7 @@ public class Main {
         // Loop menu with inventory control options.
         do {
             System.out.println();
-            System.out.println("Big Bob's Video Store Inventory Menu");
+            System.out.println(STORE_NAME);
             System.out.println();
             System.out.println("1. Add Movie");
             System.out.println("2. Remove Movie");
@@ -62,6 +69,7 @@ public class Main {
                 case 1:
 
                     // Prompt for new DVD from user.
+                    System.out.println();
                     System.out.println("-- Add A New Movie --");
                     System.out.println();
 
@@ -98,6 +106,7 @@ public class Main {
                 case 2:
 
                     // Prompt for DVD to find from user.
+                    System.out.println();
                     System.out.println("-- Remove Movie by SKU --");
                     System.out.println();
                     System.out.print("Enter SKU of Movie to remove: ");
@@ -109,6 +118,7 @@ public class Main {
                 case 3:
 
                     // Prompt for DVD to find from user.
+                    System.out.println();
                     System.out.println("-- Lookup Movie by SKU --");
                     System.out.println();
                     System.out.print("Enter SKU of Movie to Find: ");
@@ -125,9 +135,9 @@ public class Main {
                     break;
 
                 case 5:
-
-                    System.out.println("Thanks For the Inventory! Have a " +
-                            "great day");
+                    System.out.println();
+                    System.out.println("Thanks for the inventory! Have a " +
+                            "great day!");
                     loopMenu = false;
                     break;
 
